@@ -1,0 +1,23 @@
+<div class="calendar-container">
+  <div class="month-container">
+    <i (click)="updateView(-1)" class="fa fa-angle-left arrow" aria-hidden="true"></i>
+    <div class="month-title">{{monthName}} {{year}}</div>
+    <i (click)="updateView(+1)" class="fa fa-angle-right arrow" aria-hidden="true"></i>
+  </div>
+  <div class="day-container">
+    <div class="day" *ngFor="let d of day">
+     {{d}}
+    </div>
+  </div>
+  <div class="container-dates wrap">
+    <div class="box" *ngFor="let i of currentMonth" [ngClass]="{'empty': i === null, 'selected' : i === numericDay && active === true}" (click)="selectDate(i)">
+      {{i}}
+    </div>
+  </div>
+  <div class="display-date">
+    <h4>{{selectedDate | date}}</h4>
+  </div>
+</div>
+
+
+
